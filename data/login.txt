@@ -1,0 +1,1 @@
+[{"firstName":"Arif","lastName":"Muhammad","gender":"Male","birthday":"2021-07-13","religion":"ISLAM","email":"asd@asd.com","userName":"arif","password":"1","phone":"21547451","presentAddress":"\r\n        Testing","personalWebsiteLink":"http:\/\/www.google.com","permenentAddress":"Testing 2\r\n        "}]
