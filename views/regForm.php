@@ -221,8 +221,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 					 if(username == null || username == "" ){
 						 document.getElementById("errormsg") = "Invalid user name";
-					 }
-				 }
+					 }else if(passward == null || passward == "" ){
+						 document.getElementById("errormsg") = "Invalid passwaerd";
+				 	}
+else{
+	xhttp.open("POST", "regForm.php", true);
+				 xhttp.send();
+}				 
 			 }
 
 		 }
