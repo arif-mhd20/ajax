@@ -199,10 +199,31 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 		<label for="pwd">Password:</label>
 		<input type="password" id="pwd" name="pwd" required>
 
+		<label id="errormsg" ></label>
+
 
 	</fieldset>
 
 
 
 	<input style="padding-left:0em" type="submit" value="Submit">
+
+	<botton onsubmit = "fetch()">click me!</button>
+	<script>
+	     function fetch(){
+			 var xhttp = new XMLHttpRequest();
+			 var username, password;
+			 xhttp.onload = function(){
+
+				 if(this.status=== 200){
+					 username = document.getElementById("Username").innerHTML;
+					 password = document.getElementById("pwd").innerHTML;
+
+					 if(username == null || username == "" ){
+						 document.getElementById("errormsg") = "Invalid user name";
+					 }
+				 }
+			 }
+
+		 }
 </form>
