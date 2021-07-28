@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>The XMLHttpRequest Object</h2>
+
+    <form  id="form" method="post">
+        <label for="search">First name:</label>
+        <input type="text" id="search" name="search" required>
+
+        <input type="submit" value="Submit">
+    </form>
+    
+
+    <p id="demo"></p>
+
+    <script>
+    document.querySelector('#form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        console.log("Entered fetch function");
+        var xhttp = new XMLHttpRequest();
+        
+
+        xhttp.onreadystatechange = function() {
+			console.log("Inside xhttp onreadystatechange func");
+            if (this.readyState == 4 && this.status == 200) {
+                fname = document.getElementById("fname").innerHTML;
+                lname = document.getElementById("lname").innerHTML;
+                gender = document.getElementById("gender").innerHTML;
+                birthday = document.getElementById("birthday").innerHTML;
+                username = document.getElementById("Username").innerHTML;
+                password = document.getElementById("pwd").innerHTML;
+                email = document.getElementById("email").innerHTML;
+
+                if (username == null || username == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid user name";
+                } else if (passward == null || passward == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid passwaerd";
+                } else if (passward == null || fname == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid fname";
+                } else if (passward == null || lname == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid lname";
+                } else if (passward == null || gender == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid gender";
+                } else if (passward == null || birthday == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid birthday";
+                } else if (passward == null || email == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid email";
+                } else {
+					window.location.replace("loginForm.php");
+                }
+            }
+        };
+
+        xhttp.open("POST", "regForm.php", true);
+        xhttp.send();
+        
+
+
+    });
+    </script>
+
+</body>
+
+</html>

@@ -116,196 +116,149 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 ?>
 
 
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-	<fieldset>
-		<legend>
-			<h2>Registration Form:</h2>
-		</legend>
+<form id="form" method="post">
+    <fieldset>
+        <legend>
+            <h2>Registration Form:</h2>
+        </legend>
 
-		<label for="fname">First name:</label>
-		<input type="text" id="fname" name="fname" required><br><br>
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname" required><br><br>
 
-		<label for="lname">Last name:</label>
-		<input type="text" id="lname" name="lname" required><br><br>
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname" required><br><br>
 
-		<label for="gender">Gender:</label>
+        <label for="gender">Gender:</label>
 
-		<input type="radio" id="gender" name="gender" value="Male" required>
-		<label for="male">Male</label>
+        <input type="radio" id="gender" name="gender" value="Male" required>
+        <label for="male">Male</label>
 
-		<input type="radio" id="female" name="gender" value="female" required>
-		<label for="female">Female</label><br><br>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label><br><br>
 
-		<label for="birthday">DOB:</label>
-		<input type="date" id="birthday" name="birthday" required><br><br>
-		
-
-		<label for ="Religion">Religion:</label>
-           <select name="Religion" id="Religion">
-			<option value="ISLAM">ISLAM</option>
-			<option value="saab">CHRISTIANITY</option>
-			<option value="mercedes">HINDUISM</option>
-			<option value="audi">BUDDHISM</option>
-		</select>
-		<br><br>
+        <label for="birthday">DOB:</label>
+        <input type="date" id="birthday" name="birthday" required><br><br>
 
 
+        <label for="Religion">Religion:</label>
+        <select name="Religion" id="Religion">
+            <option value="ISLAM">ISLAM</option>
+            <option value="saab">CHRISTIANITY</option>
+            <option value="mercedes">HINDUISM</option>
+            <option value="audi">BUDDHISM</option>
+        </select>
+        <br><br>
 
-	</fieldset>
-
-	<fieldset>
-		<legend>Contact Information:</legend>
 
 
-		<b><label for="present_address">Present Address: </label></b>&nbsp;&nbsp;
-		<textarea id="present_address" name="present_address">
+    </fieldset>
 
-        </textarea><br><br>
+    <fieldset>
+        <legend>Contact Information:</legend>
 
-		<b><label for="permanent_address">Permanent Address: </label></b>&nbsp;&nbsp;&nbsp;
-		<textarea id="permanent_address" name="permanent_address">
+
+        <b><label for="present_address">Present Address: </label></b>&nbsp;&nbsp;
+        <textarea id="present_address" name="present_address">
 
         </textarea><br><br>
 
+        <b><label for="permanent_address">Permanent Address: </label></b>&nbsp;&nbsp;&nbsp;
+        <textarea id="permanent_address" name="permanent_address">
 
-		<label for="phone"> phone:</label>
-		<input type="tel" id="phone" name="phone" ><br><br>
-
-
-		<label for="email"> email:</label>
-		<input type="email" id="email" name="email" required><br><br>
-
-		<label for="personal_web_link">Personal Website Link:</label>
-		<input type="personal_web_link" id="personal_web_link" name="personal_web_link">
-		<br><br>
+        </textarea><br><br>
 
 
-	</fieldset>
+        <label for="phone"> phone:</label>
+        <input type="tel" id="phone" name="phone"><br><br>
 
 
-	<fieldset>
+        <label for="email"> email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="personal_web_link">Personal Website Link:</label>
+        <input type="personal_web_link" id="personal_web_link" name="personal_web_link">
+        <br><br>
 
 
-
-		<legend>Contact Information:</legend>
-
-
-		<br><br>
+    </fieldset>
 
 
-		<label for="Username">Username:</label>
-		<input type="text" id="Username" name="Username" required><br><br>
-
-		<label for="pwd">Password:</label>
-		<input type="password" id="pwd" name="pwd" required>
-
-		<label id="errormsg" ></label>
-
-
-	</fieldset>
+    <fieldset>
 
 
 
-	<input style="padding-left:0em" type="submit" value="Submit">
-
-	<botton onsubmit = "fetch()">click me!</button>
-	<script>
-	     function fetch(){
-			 var xhttp = new XMLHttpRequest();
-			 var username, password;
-			 console.log("Hello World");
-			 xhttp.onload = function(){
-
-				 if(this.status=== 200){
-					fname = document.getElementById("fname").innerHTML;
-					lname = document.getElementById("lname").innerHTML;
-					gender = document.getElementById("gender").innerHTML;
-					birthday = document.getElementById("birthday").innerHTML;
-					 username = document.getElementById("Username").innerHTML;
-					 password = document.getElementById("pwd").innerHTML;
-					 email = document.getElementById("email").innerHTML;
-
-					 if(username == null || username == "" ){
-						 document.getElementById("errormsg") = "Invalid user name";
-					 }else if(passward == null || passward == "" ){
-						 document.getElementById("errormsg") = "Invalid passwaerd";
-				 	}
-					 else if(passward == null || fname == "" ){
-						 document.getElementById("errormsg") = "Invalid fname";
-				 	}
-					 else if(passward == null || lname == "" ){
-						 document.getElementById("errormsg") = "Invalid lname";
-				 	}
-					 else if(passward == null || gender == "" ){
-						 document.getElementById("errormsg") = "Invalid gender";
-				 	}
-					 else if(passward == null || birthday == "" ){
-						 document.getElementById("errormsg") = "Invalid birthday";
-				 	}
-					 else if(passward == null || email == "" ){
-						 document.getElementById("errormsg") = "Invalid email";
-				 	}
-else{
-	xhttp.open("POST", "regForm.php", true);
-				 xhttp.send();
-}				 
-			 }
-
-		 }
-		 </script>
+        <legend>Contact Information:</legend>
 
 
-		 <h1>AJAX FORM SUBMISSION</h1>
-
-<form action =" indexAction.php" name="mForm"methord = "POST" onsubmit="submitForm(this);
-return false;">
-<label for ="name">Full Name:</label>
-<input type ="text" name ="name" id="name">
-<span id ="errorMsg" style="color: red;"><\span>
-<input type ="submit" name="submit"value="submit">
-<\form>
-
-<h2 id ="demo"></h2>
-
-<script>
-	function check(val){
-		var name = val.name.value;
-		document.getElementById("errorMsg").innerHTML="";
-		if(name===""){
-			document.getElementById("errorMsg").innerHTML = "please fill up the field";
-		return false;
-		}
-		return true;
-	}
-
-	function submitForm(pForm){
-		var isvalid = check(pForm);
-		if(isvalid){
-	 var xhttp.onload =function(){
-		 if (this.status ===200){
-			 document.getElementById("demo").innerHTML=this.responseText;
-		 }
-
-	 }
-	 
-xhttp.open("POST","regForm.php");
-xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-xhttp.send("name"+ pForm.name.value);
+        <br><br>
 
 
-		}
-	}
-	</script>
-	</body>
-	</html>
+        <label for="Username">Username:</label>
+        <input type="text" id="Username" name="Username" ><br><br>
+
+        <label for="pwd">Password:</label>
+        <input type="password" id="pwd" name="pwd" required>
+
+        <p id="errormsg"></p>
+
+
+    </fieldset>
+
+    <input type="submit" value="Submit">
+
+    <script>
+    document.querySelector('#form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        console.log("Entered fetch function");
+        var xhttp = new XMLHttpRequest();
+        var username, password;
+        var fname, lname, gender, birthday, email;
+        
+
+        xhttp.onreadystatechange = function() {
+			console.log("Inside xhttp onreadystatechange func");
+            if (this.readyState == 4 && this.status == 200) {
+                fname = document.getElementById("fname").innerHTML;
+                lname = document.getElementById("lname").innerHTML;
+                gender = document.getElementById("gender").innerHTML;
+                birthday = document.getElementById("birthday").innerHTML;
+                username = document.getElementById("Username").innerHTML;
+                password = document.getElementById("pwd").innerHTML;
+                email = document.getElementById("email").innerHTML;
+
+                if (username == null || username == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid user name";
+                } else if (passward == null || passward == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid passwaerd";
+                } else if (passward == null || fname == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid fname";
+                } else if (passward == null || lname == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid lname";
+                } else if (passward == null || gender == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid gender";
+                } else if (passward == null || birthday == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid birthday";
+                } else if (passward == null || email == "") {
+                    document.getElementById("errormsg").innerHTML = "Invalid email";
+                } else {
+					window.location.replace("loginForm.php");
+                }
+            }
+        };
+
+        xhttp.open("POST", "regForm.php", true);
+        xhttp.send();
+        
+
+
+    });
+    </script>
 
 
 
 
-		 
-		 </form>
 
 
-		
 
-		}
+
+</form>
